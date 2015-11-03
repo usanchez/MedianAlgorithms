@@ -8,7 +8,7 @@ def rndAlgMedian(lst):
     n = len(lst)
     R = []
     n_R = math.pow(n, 3/4)
-    R = numpy.random.choice(lst, n_R, True)
+    R = np.random.choice(lst, n_R, True)
     " sort R
     list.sort(R)
     " d = R[1/2 * n^3/4 - sqrt n]
@@ -26,7 +26,7 @@ def rndAlgMedian(lst):
     " lu = x pertenece a S, x>u, numeric: cantidad de numeros mayor que u
     lu = 0
     for x in lst:
-        if x > d and x < u:
+        if d < x < u:
             list.append(C, x)
         elif x > d:
             ld += 1
