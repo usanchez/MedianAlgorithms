@@ -3,17 +3,19 @@ __author__ = 'Unai'
 import numpy as np
 import math
 
+
 def rndAlgMedian(lst):
-    " R = a multiset of n^3/4 elements from S chosen uar with replacement
+    #R = a multiset of n^3/4 elements from S chosen uar with replacement
     n = len(lst)
     R = []
     n_R = math.pow(n, 3/4)
     R = np.random.choice(lst, n_R, True)
-    " sort R
+
+    # sort R
     list.sort(R)
-    " d = R[1/2 * n^3/4 - sqrt n]
+    # d = R[1/2 * n^3/4 - sqrt n]
     d = R[1/2 * n_R - math.sqrt(n)]
-    " u =  R[1/2 * n^3/4 - sqrt n]
+    # u =  R[1/2 * n^3/4 - sqrt n]
     u = R[1/2 * n_R + math.sqrt(n)]
 
     """
@@ -21,9 +23,9 @@ def rndAlgMedian(lst):
     c = x pertenece a S, d<x<u, c es un vector que contiene elementos de S que estan entre los valores d y u
     """
     C = []
-    " ld = x pertenece a S, x<d, numeric: cantidad de numeros menor que d
+    # ld = x pertenece a S, x<d, numeric: cantidad de numeros menor que d
     ld = 0
-    " lu = x pertenece a S, x>u, numeric: cantidad de numeros mayor que u
+    # lu = x pertenece a S, x>u, numeric: cantidad de numeros mayor que u
     lu = 0
     for x in lst:
         if d < x < u:
@@ -33,15 +35,18 @@ def rndAlgMedian(lst):
         else:
             lu += 1
 
-    " if( ld > n/2) FAIL
-    if ld > n/2: FAIL
-    " if( lu > n/2) FAIL
-    if ld > n/2: FAIL
-    " if( size(c) > 4*n^3/4 ) FAIL
-    if len(C) > 4 * n_R: FAIL
-    " sort c
+    # if( ld > n/2) FAIL
+    if ld > n/2:
+        FAIL
+    # if( lu > n/2) FAIL
+    if ld > n/2:
+        FAIL
+    # if( size(c) > 4*n^3/4 ) FAIL
+    if len(C) > 4 * n_R:
+        FAIL
+    # sort c
     list.sort(C)
-    " return C[n/2 - ld +1]
+    # return C[n/2 - ld +1]
 
     return C[n/2 - ld + 1]
 
