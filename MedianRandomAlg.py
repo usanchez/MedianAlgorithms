@@ -47,5 +47,4 @@ def rndAlgMedian(lst):
 
 lst = [70, 120, 170, 200]
 
-"luhvul
 print(rndAlgMedian(lst ))
