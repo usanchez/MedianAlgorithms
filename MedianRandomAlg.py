@@ -28,22 +28,21 @@ def rndAlgMedian(lst):
     # lu = x pertenece a S, x>u, numeric: cantidad de numeros mayor que u
     lu = 0
     for x in lst:
-        if d < x < u:
-            list.append(C, x)
-        elif x > d:
+        if x > d:
             ld += 1
-        else:
+        elif x > d:
             lu += 1
-
+        else:
+            list.append(C, x)
     # if( ld > n/2) FAIL
     if ld > n/2:
-        FAIL
+        return -1
     # if( lu > n/2) FAIL
     if ld > n/2:
-        FAIL
+        return -2
     # if( size(c) > 4*n^3/4 ) FAIL
     if len(C) > 4 * n_R:
-        FAIL
+        return -3
     # sort c
     list.sort(C)
     # return C[n/2 - ld +1]
