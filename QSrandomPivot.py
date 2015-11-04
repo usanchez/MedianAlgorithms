@@ -20,7 +20,6 @@ def quickSelectRnd(lst, k):
         m = len(smallerList)
         if k >= m and k < m + count:
             return pivot
-            print(pivot)
         elif m > k:
             return quickSelectRnd(smallerList, k)
         else:
@@ -28,5 +27,4 @@ def quickSelectRnd(lst, k):
 
 lst = [70, 120, 170, 200, 254, 422, 42, 43, 423, 453, 523, 52, 323, 42, 3, 42, 34]
 
-
-print(quickSelectRnd(lst, len(lst) // 2))
+print(quickSelectRnd(lst, len(lst)/2))

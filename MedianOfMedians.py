@@ -1,7 +1,7 @@
 __author__ = 'Unai'
 
 
-def select(l, j):
+def medianOfMedians(l, j):
     if len(l) < 10:
         l.sort()
         return l[j]
@@ -13,8 +13,8 @@ def select(l, j):
     s.append(l[lIndex:])
     meds = []
     for subList in s:
-        meds.append(select(subList, int((len(subList)-1)/2)))
-    med = select(meds, int((len(meds)-1)/2))
+        meds.append(medianOfMedians(subList, int((len(subList)-1)/2)))
+    med = medianOfMedians(meds, int((len(meds)-1)/2))
     l1 = []
     l2 = []
     l3 = []
@@ -26,10 +26,12 @@ def select(l, j):
         else:
             l2.append(i)
     if j < len(l1):
-        return select(l1, j)
+        return medianOfMedians(l1, j)
     elif j < len(l2) + len(l1):
         return l2[0]
     else:
-        return select(l3, j-len(l1)-len(l2))
+        return medianOfMedians(l3, j-len(l1)-len(l2))
 
 lst = [70, 120, 170, 200, 254, 422, 42, 43, 423, 453, 523, 52, 323, 42, 3, 42, 34]
+
+print(medianOfMedians(lst, len(lst)/2))
