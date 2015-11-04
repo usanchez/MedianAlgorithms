@@ -31,3 +31,5 @@ def select(l, j):
         return l2[0]
     else:
         return select(l3, j-len(l1)-len(l2))
+
+lst = [70, 120, 170, 200, 254, 422, 42, 43, 423, 453, 523, 52, 323, 42, 3, 42, 34]

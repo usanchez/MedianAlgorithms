@@ -2,11 +2,11 @@ __author__ = 'Unai'
 import random
 
 
-def quickSelectRnd(lst):
-    k = len(lst) // 2
+def quickSelectRnd(lst, k):
+
     if len(lst) != 0:
         random.seed()
-        rnd = random.randint(0, len(lst))
+        rnd = random.randint(0, len(lst)-1)
         pivot = lst[rnd]
         smallerList = []
         for i in lst:
@@ -26,7 +26,7 @@ def quickSelectRnd(lst):
         else:
             return quickSelectRnd(largerList, k-m-count)
 
-lst = [70, 120, 170, 200, 545, 232, 414, 431]
+lst = [70, 120, 170, 200, 254, 422, 42, 43, 423, 453, 523, 52, 323, 42, 3, 42, 34]
 
 
-print(quickSelectRnd(lst))
+print(quickSelectRnd(lst, len(lst) // 2))

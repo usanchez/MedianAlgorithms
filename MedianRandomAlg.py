@@ -8,11 +8,12 @@ def rndAlgMedian(lst):
     #R = a multiset of n^3/4 elements from S chosen uar with replacement
     n = len(lst)
     R = []
-    n_R = math.pow(n, 3/4)
+    n_R = math.pow(n, 0.75)
     R = np.random.choice(lst, n_R, True)
 
     # sort R
-    list.sort(R)
+    R.sort()
+    print R
     # d = R[1/2 * n^3/4 - sqrt n]
     d = R[1/2 * n_R - math.sqrt(n)]
     # u =  R[1/2 * n^3/4 - sqrt n]
@@ -33,22 +34,22 @@ def rndAlgMedian(lst):
         elif x > d:
             lu += 1
         else:
-            list.append(C, x)
-    # if( ld > n/2) FAIL
+            C.append(x)
+
+    # Fail conditions
     if ld > n/2:
         return -1
-    # if( lu > n/2) FAIL
     if ld > n/2:
         return -2
-    # if( size(c) > 4*n^3/4 ) FAIL
     if len(C) > 4 * n_R:
         return -3
-    # sort c
-    list.sort(C)
-    # return C[n/2 - ld +1]
 
+    # sort c
+    C.sort()
+
+    # return C[n/2 - ld +1]
     return C[n/2 - ld + 1]
 
-lst = [70, 120, 170, 200]
+lst = [70, 120, 170, 200, 254, 422, 42, 43, 423, 453, 523, 52, 323, 42, 3, 42, 34]
 
 print(rndAlgMedian(lst ))
