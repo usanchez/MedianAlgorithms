@@ -1,23 +1,23 @@
 __author__ = 'Unai'
 
 import numpy as np
-import math
-
+from math import sqrt
 
 def rndAlgMedian(lst):
     #R = a multiset of n^3/4 elements from S chosen uar with replacement
     n = len(lst)
     R = []
-    n_R = math.pow(n, 0.75)
-    R = np.random.choice(lst, n_R, True)
+    n_R = n ** 0.75
+    R = np.random.choice(lst, n_R+1, True) # ceil of # elements
 
     # sort R
     R.sort()
-    print R
+    print(R)
+    mid_R = int((n_R+1)/2.)
     # d = R[1/2 * n^3/4 - sqrt n]
-    d = R[1/2 * n_R - math.sqrt(n)]
+    d = R[int(mid_R - sqrt(n))+1] # ceil
     # u =  R[1/2 * n^3/4 - sqrt n]
-    u = R[1/2 * n_R + math.sqrt(n)]
+    u = R[int(mid_R + sqrt(n))]
 
     """
     By comparing the elements of S to d and u, create C
@@ -29,9 +29,9 @@ def rndAlgMedian(lst):
     # lu = x pertenece a S, x>u, numeric: cantidad de numeros mayor que u
     lu = 0
     for x in lst:
-        if x > d:
+        if x < d:
             ld += 1
-        elif x > d:
+        elif x > u:
             lu += 1
         else:
             C.append(x)
@@ -48,8 +48,5 @@ def rndAlgMedian(lst):
     C.sort()
 
     # return C[n/2 - ld +1]
-    return C[n/2 - ld + 1]
+    return C[int(n/2.) - ld]
 
-lst = [70, 120, 170, 200, 254, 422, 42, 43, 423, 453, 523, 52, 323, 42, 3, 42, 34]
-
-print(rndAlgMedian(lst ))

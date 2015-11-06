@@ -24,7 +24,3 @@ def quickSelectRnd(lst, k):
             return quickSelectRnd(smallerList, k)
         else:
             return quickSelectRnd(largerList, k-m-count)
-
-lst = [70, 120, 170, 200, 254, 422, 42, 43, 423, 453, 523, 52, 323, 42, 3, 42, 34]
-
-print(quickSelectRnd(lst, len(lst)/2))

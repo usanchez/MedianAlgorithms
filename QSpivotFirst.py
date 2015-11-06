@@ -21,8 +21,3 @@ def quickSelect(lst, k):
             return quickSelect(smallerList, k)
         else:
             return quickSelect(largerList, k-m-count)
-
-lst = [70, 120, 170, 200, 254, 422, 42, 43, 423, 453, 523, 52, 323, 42, 3, 42, 34]
-
-
-print(quickSelect(lst, len(lst) // 2))
