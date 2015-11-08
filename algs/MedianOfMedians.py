@@ -26,8 +26,8 @@ def medianOfMedians(l, j):
         else:
             l2.append(i)
     if j < len(l1):
-        return medianOfMedians(l1, j)
+        return medianOfMedians(l1, int(j))
     elif j < len(l2) + len(l1):
         return l2[0]
     else:
-        return medianOfMedians(l3, j-len(l1)-len(l2))
+        return medianOfMedians(l3, int(j-len(l1)-len(l2)))
