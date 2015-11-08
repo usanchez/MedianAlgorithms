@@ -19,15 +19,15 @@ def rndAlgMedian(lst):
     n_R = n ** 0.75
 
     # R = [choice(lst) for i in range(int(n_R)+1)] #sample(S, int(ceil(m))) #
-    R = np.random.choice(lst, n_R+1, True)  # ceil of # elements
+    R = np.random.choice(lst, int(n_R)+1, True)  # ceil of # elements
 
     # sort R
     R.sort()
 
     # d = R[1/2 * n^3/4 - sqrt n]
-    d = R[int(n_R//2 - sqrt(n))+1]  # ceil
+    d = R[int(n_R/2 - sqrt(n))+1]  # ceil
     # u =  R[1/2 * n^3/4 - sqrt n]
-    u = R[int(n_R//2 + sqrt(n))]
+    u = R[int(n_R/2 + sqrt(n))]
 
     """
     By comparing the elements of S to d and u, create C
@@ -47,9 +47,9 @@ def rndAlgMedian(lst):
             C.append(x)
 
     # Fail conditions
-    if ld > n/2.:
+    if ld > n/2:
         return -1
-    if lu > n/2.:
+    if lu > n/2:
         return -2
     if len(C) > 4 * n_R:
         return -3
@@ -58,5 +58,5 @@ def rndAlgMedian(lst):
     C.sort()
 
     # return C[n/2 - ld +1]
-    return C[n//2 - (ld+1)]
+    return C[n//2 - ld]
 
