@@ -12,9 +12,9 @@ if __name__ == "__main__":
     print('\tEnd of: Median of medians\n\tStart of: QS First Pivot')
     #test_qsFirst(1)
     print('\tEnd of: QS First Pivot\n\tStart of: QS Random Pivot')
-    #test_qsRandom(1000)
+    test_qsRandom(1000)
     print('\tEnd of: QS Random Pivot\n\tStart of: Random Algorithm')
-    test_rndAlg(1000)
+    #test_rndAlg(1000)
     print('\tEnd of: Random Algorithm\nEND')
 
 

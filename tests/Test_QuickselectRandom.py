@@ -52,7 +52,7 @@ def test_qsRandom(n):
 
             elapsed = timeit.timeit("timeit_qsRandom()",
                                     setup="from tests.Test_QuickselectRandom import timeit_qsRandom", number=n)
-            list_of_tuples[it_num][size_num] = [len(lst), elapsed]
+            list_of_tuples[it_num][size_num] = [len(lst), elapsed/n]
             size_num += 1
         it_num += 1
 

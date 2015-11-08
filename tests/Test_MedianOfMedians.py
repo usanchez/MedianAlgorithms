@@ -45,7 +45,7 @@ def test_mom(n):
             global element
             element = len(i)//2
             elapsed = timeit.timeit("timeit_mom()", setup="from tests.Test_MedianOfMedians import timeit_mom", number=n)
-            list_of_tuples[it_num][size_num] = [len(lst), elapsed]
+            list_of_tuples[it_num][size_num] = [len(lst), elapsed/n]
             size_num += 1
         it_num += 1
 
